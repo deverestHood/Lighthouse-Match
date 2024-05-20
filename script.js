@@ -162,3 +162,71 @@ function ready() {
         });
     });
 }
+
+$(document).ready(function() {
+    const canvas = $('#canvas')[0];
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const maxParts = 1000;
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    function createParticles() {
+        particles = [];
+        for (let a = 0; a < maxParts; a++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                l: Math.random() * 1,
+                xs: -4 + Math.random() * 4 + 2,
+                ys: Math.random() * 10 + 10
+            });
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = 'rgba(174,194,224,0.5)';
+        ctx.lineWidth = 1;
+        ctx.lineCap = 'round';
+        for (let c = 0; c < particles.length; c++) {
+            const p = particles[c];
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p.x + p.l * p.xs, p.y + p.l * p.ys);
+            ctx.stroke();
+        }
+        move();
+    }
+
+    function move() {
+        for (let b = 0; b < particles.length; b++) {
+            const p = particles[b];
+            p.x += p.xs;
+            p.y += p.ys;
+            if (p.x > canvas.width || p.y > canvas.height) {
+                p.x = Math.random() * canvas.width;
+                p.y = -20;
+            }
+        }
+    }
+
+    function init() {
+        resizeCanvas();
+        createParticles();
+        setInterval(draw, 30);
+    }
+
+    $(window).resize(function() {
+        resizeCanvas();
+        createParticles();
+    });
+
+    init();
+});
+
+
+  
