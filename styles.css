@@ -11,9 +11,9 @@ html {
 body {
   margin: 0;
   background-image: url("Assets/Images/lighthouse-8749220_1920.jpg");
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
   background-color: radial-gradient(#00889d, #00373d);
 }
 
@@ -124,6 +124,74 @@ img {
   cursor: pointer;
 }
 
+@media (max-width: 1024px) {
+  .page-title {
+    font-size: 5em;
+  }
+  #flash {
+    font-size: 0.75em;
+    text-align: center;
+  }
+  .game-container {
+    grid-template-columns: repeat(4, auto);
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 4em;
+  }
+  #flash {
+    font-size: 0.5em;
+    text-align: center;
+  }
+  .game-container {
+    grid-template-columns: repeat(3, auto);
+  }
+  #victory-text,
+  #game-over-text {
+    font-size: 16px;
+    text-align: center;
+    justify-self: center;
+  }
+  .overlay-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 3em;
+  }
+  #flash {
+    font-size: 0.3em;
+  }
+
+  .game-container {
+    grid-template-columns: repeat(2, auto);
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    margin: auto;
+  }
+  .game-info {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    font-size: 3em;
+  }
+  #victory-text,
+  #game-over-text {
+    font-size: 10px;
+  }
+  .overlay-text {
+    font-size: 10px;
+  }
+}
+
 #flash {
   animation: 2s ease-in-out infinite both flash;
 }
@@ -160,17 +228,7 @@ img {
   }
 }
 
-@media screen and (max-width: 600px) {
-  .game-container {
-    grid-template-columns: repeat(3, auto);
-  }
-
-  .game-info-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .overlay-text {
-    
-  }
+.game-info-container {
+  flex-direction: column;
+  align-items: center;
 }
