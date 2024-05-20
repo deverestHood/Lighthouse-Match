@@ -18,7 +18,7 @@ body {
 }
 
 #canvas {
-  z-index: 1;
+  z-index: -999;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -135,7 +135,7 @@ img {
   .page-title {
     font-size: 5em;
   }
-  #flash {
+  #flash, #game-over-text {
     font-size: 0.75em;
     text-align: center;
   }
