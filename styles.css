@@ -20,6 +20,7 @@ body {
 #canvas {
   z-index: -999;
   position: fixed;
+  top: 0px;
   width: 100%;
   height: 100%;
 }
@@ -135,12 +136,13 @@ img {
   .page-title {
     font-size: 5em;
   }
-  #flash, #game-over-text {
+  #flash, 
+  #game-over-text {
     font-size: 0.75em;
     text-align: center;
   }
   .game-container {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(3, auto);
   }
 }
 
