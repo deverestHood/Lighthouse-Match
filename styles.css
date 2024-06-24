@@ -43,7 +43,11 @@ body {
   color: #25929e;
   font-size: 4em;
   text-shadow: 2.75px 2.75px 2px rgb(11, 55, 79), 4px 4px 15px rgb(166, 208, 231);
+}
 
+.game-info-container {
+  flex-direction: column;
+  align-items: center;
 }
 
 .game-container {
@@ -132,79 +136,9 @@ img {
   cursor: pointer;
 }
 
-@media (max-width: 1024px) {
-  .page-title {
-    font-size: 5em;
-  }
-  #flash, 
-  #game-over-text {
-    font-size: 0.75em;
-    text-align: center;
-  }
-  .game-container {
-    grid-template-columns: repeat(3, auto);
-  }
-}
-
-@media (max-width: 768px) {
-  .page-title {
-    font-size: 4em;
-  }
-  #flash {
-    font-size: 0.5em;
-    text-align: center;
-  }
-  .game-container {
-    grid-template-columns: repeat(3, auto);
-  }
-  #victory-text,
-  #game-over-text {
-    font-size: 0.5em;
-    text-align: center;
-    justify-self: center;
-  }
-  .overlay-text {
-    font-size: 0.5em;
-  }
-}
-
-@media (max-width: 480px) {
-  .page-title {
-    font-size: 3em;
-  }
-  #flash {
-    font-size: 0.15em;
-  }
-
-  .game-container {
-    grid-template-columns: repeat(2, auto);
-    width: 100%;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-  }
-  .card {
-    margin: auto;
-  }
-  .game-info {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    font-size: 3em;
-  }
-  #victory-text,
-  #game-over-text {
-    font-size: 0.15em;
-    text-align: center;
-    justify-self: center;
-  }
-  .overlay-text {
-    font-size: 0.15em;
-  }
-}
-
-#flash {
-  animation: 2s ease-in-out infinite both flash;
+.overlay-text.visible {
+  display: flex;
+  animation: 500ms forwards overlay-grow;
 }
 
 .overlay-text-small {
@@ -212,9 +146,8 @@ img {
   animation: 2s ease-in-out infinite both flash; 
 }
 
-.overlay-text.visible {
-  display: flex;
-  animation: 500ms forwards overlay-grow;
+#flash {
+  animation: 2s ease-in-out infinite both flash;
 }
 
 @keyframes overlay-grow {
@@ -240,7 +173,67 @@ img {
   }
 }
 
-.game-info-container {
-  flex-direction: column;
-  align-items: center;
+@media (max-width: 1024px) {
+  .page-title {
+    font-size: 5em;
+  }
+  #flash, 
+  #game-over-text p, 
+  #victory-text p {
+    font-size: 0.75em;
+    text-align: center;
+  }
+  .game-container {
+    grid-template-columns: repeat(3, auto);
+  }
 }
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 4em;
+  }
+  #flash, #victory-text p,
+  #game-over-text p {
+    font-size: 0.5em;
+    text-align: center;
+    justify-self: center;
+  }
+  .overlay-text-small p {
+    font-size: 0.7em !important;
+  }
+  .game-container {
+    grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 3em;
+  }
+  .game-info {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    font-size: 3em;
+  }
+  .card {
+    margin: auto;
+  }
+  #flash, #victory-text p,
+  #game-over-text p {
+    font-size: 0.4em;
+    text-align: center;
+    justify-self: center;
+  }
+  .overlay-text-small p {
+    font-size: 0.7em !important;
+  }
+  .game-container {
+    grid-template-columns: repeat(2, auto);
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
